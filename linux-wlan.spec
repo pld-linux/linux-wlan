@@ -2,7 +2,7 @@ Summary:	PCMCIA wireless microwave network card services
 Summary(pl):	Obs³uga mikrofalowych kart sieciowych PCMCIA
 Name:		linux-wlan
 Version:	0.3.4
-Release:	1
+Release:	2
 License:	MPL (Mozilla Public License)
 Group:		Applications/System
 Group(de):	Applikationen/System
@@ -11,6 +11,7 @@ Source0:	http://www.linux-wlan.com/linux-wlan/%{name}-%{version}.tar.gz
 Patch0:		%{name}.pld.patch
 URL:		http://www.linux-wlan.com/
 Requires:	pcmcia-cs
+Prereq:		/usr/sbin/chkconfig
 ExcludeArch:	sparc sparc64
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -20,14 +21,13 @@ handling support for your PLD-Linux system.
 
 %description -l pl
 Pakiet pcmcia-cs zawiera programy wspieraj±ce obs³ugê mikrofalowych
-kart sieciowych PCMCIA w Twoim PLD-Linuxie.
+kart sieciowych PCMCIA w Twoim PLD-Linuksie.
 
 %prep
 %setup -q
 %patch0 -p0
 
 %build
-
 %{__make} all 
 
 %install
@@ -45,11 +45,8 @@ gzip -9nf SUPPORTED.CARDS CHANGES COPYING README \
 	FAQ.isa README.debug README.isa README.linuxppc \
 	README.wep TODO THANKS 
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %post
-chkconfig --add pcmcia
+/sbin/chkconfig --add pcmcia
 if [ -f /var/lock/subsys/pcmcia ]; then
 	/etc/rc.d/init.d/pcmcia restart 2> /dev/null
 else
@@ -61,7 +58,11 @@ if [ "$1" = "0" ]; then
 	if [ -f /var/state/run/pcmcia ]; then
 		/etc/rc.d/init.d/pcmcia restart 2> /dev/null
 	fi
+	/sbin/chkconfig --del pcmcia
 fi
+
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
