@@ -49,10 +49,19 @@ gzip -9nf SUPPORTED.CARDS CHANGES COPYING README \
 rm -rf $RPM_BUILD_ROOT
 
 %post
-NAME=pcmcia; DESC="pcmcia cardbus daemon"; %chkconfig_add
+chkconfig --add pcmcia
+if [ -f /var/lock/subsys/pcmcia ]; then
+	/etc/rc.d/init.d/pcmcia restart 2> /dev/null
+else
+	echo "Run \"/rc.d/init.d/pcmcia start\" to start pcmcia cardbus daemon."
+fi
 
-%preun
-NAME=pcmcia; %chkconfig_del
+%postun
+if [ "$1" = "0" ]; then
+	if [ -f /var/state/run/pcmcia ]; then
+		/etc/rc.d/init.d/pcmcia restart 2> /dev/null
+	fi
+fi
 
 %files
 %defattr(644,root,root,755)
