@@ -1,0 +1,13 @@
+*** Makefile.org	Sat Jan 20 23:30:13 2001
+--- Makefile	Sat Jan 20 23:29:11 2001
+***************
+*** 1,4 ****
+! DIRS = driver wlanctl wlandump man
+  
+  all:
+  	set -e; for d in $(DIRS); do $(MAKE) -C $$d ; done
+--- 1,4 ----
+! DIRS = wlanctl wlandump man
+  
+  all:
+  	set -e; for d in $(DIRS); do $(MAKE) -C $$d ; done
