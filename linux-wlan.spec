@@ -6,6 +6,7 @@ Release:	5
 License:	MPL
 Group:		Applications/System
 Source0:	http://www.linux-wlan.com/linux-wlan/%{name}-%{version}.tar.gz
+# Source0-md5:	47fb22cb5ca497eaa6bc51eed2056929
 Patch0:		%{name}.pld.patch
 URL:		http://www.linux-wlan.com/
 Prereq:		pcmcia-cs
