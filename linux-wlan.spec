@@ -25,7 +25,7 @@ kart sieciowych PCMCIA w Twoim PLD-Linuksie.
 %patch0 -p0
 
 %build
-%{__make} all 
+%{__make} all
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -40,7 +40,7 @@ mv -f $RPM_BUILD_ROOT%{_sysconfdir}/pcmcia/wlan.config /$RPM_BUILD_ROOT%{_syscon
 
 gzip -9nf SUPPORTED.CARDS CHANGES COPYING README \
 	FAQ.isa README.debug README.isa README.linuxppc \
-	README.wep TODO THANKS 
+	README.wep TODO THANKS
 
 %clean
 rm -rf $RPM_BUILD_ROOT
