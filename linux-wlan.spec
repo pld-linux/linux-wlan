@@ -2,8 +2,8 @@ Summary:	PCMCIA wireless microwave network card services
 Summary(pl):	Obs³uga mikrofalowych kart sieciowych PCMCIA
 Name:		linux-wlan
 Version:	0.3.4
-Release:	4
-License:	MPL (Mozilla Public License)
+Release:	5
+License:	Mozilla Public License
 Group:		Applications/System
 Source0:	http://www.linux-wlan.com/linux-wlan/%{name}-%{version}.tar.gz
 Patch0:		%{name}.pld.patch
