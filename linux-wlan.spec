@@ -5,8 +5,6 @@ Version:	0.3.4
 Release:	3
 License:	MPL (Mozilla Public License)
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Source0:	http://www.linux-wlan.com/linux-wlan/%{name}-%{version}.tar.gz
 Patch0:		%{name}.pld.patch
 URL:		http://www.linux-wlan.com/
