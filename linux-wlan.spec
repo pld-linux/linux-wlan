@@ -2,7 +2,7 @@ Summary:	PCMCIA wireless microwave network card services
 Summary(pl):	Obs³uga mikrofalowych kart sieciowych PCMCIA
 Name:		linux-wlan
 Version:	0.3.4
-Release:	3
+Release:	4
 License:	MPL (Mozilla Public License)
 Group:		Applications/System
 Source0:	http://www.linux-wlan.com/linux-wlan/%{name}-%{version}.tar.gz
@@ -40,7 +40,6 @@ install man/*.8 $RPM_BUILD_ROOT%{_mandir}/man8
 
 mv -f $RPM_BUILD_ROOT%{_sysconfdir}/pcmcia/wlan.config /$RPM_BUILD_ROOT%{_sysconfdir}/pcmcia/wlan.conf
 
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -62,7 +61,7 @@ fi
 %defattr(644,root,root,755)
 %doc SUPPORTED.CARDS CHANGES COPYING README FAQ.isa README.debug README.isa
 %doc README.linuxppc README.wep TODO THANKS
-%attr(755,root,root) %{_sbindir}*
+%attr(755,root,root) %{_sbindir}/*
 %attr(755,root,root) %{_sysconfdir}/pcmcia/wlan
 %attr(644,root,root) %{_sysconfdir}/pcmcia/wlan.conf
 %attr(600,root,root) %config %verify(not size mtime md5) %{_sysconfdir}/pcmcia/wlan.opts
