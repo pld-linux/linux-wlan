@@ -9,7 +9,7 @@ Source0:	http://www.linux-wlan.com/linux-wlan/%{name}-%{version}.tar.gz
 # Source0-md5:	47fb22cb5ca497eaa6bc51eed2056929
 Patch0:		%{name}.pld.patch
 URL:		http://www.linux-wlan.com/
-Prereq:		pcmcia-cs
+Requires:	pcmcia-cs
 ExcludeArch:	sparc sparc64
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -34,8 +34,8 @@ kart sieciowych PCMCIA w Twoim PLD-Linuksie.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sbindir},%{_mandir}/man8,%{_sysconfdir}/pcmcia}
 
-install wlanctl/wlanctl $RPM_BUILD_ROOT/sbin
-install wlandump/wlandump $RPM_BUILD_ROOT/sbin
+install wlanctl/wlanctl $RPM_BUILD_ROOT%{_sbindir}
+install wlandump/wlandump $RPM_BUILD_ROOT%{_sbindir}
 install scripts/wla* $RPM_BUILD_ROOT%{_sysconfdir}/pcmcia
 install man/*.8 $RPM_BUILD_ROOT%{_mandir}/man8
 
@@ -65,6 +65,6 @@ fi
 %attr(755,root,root) %{_sbindir}/*
 %attr(755,root,root) %{_sysconfdir}/pcmcia/wlan
 %attr(644,root,root) %{_sysconfdir}/pcmcia/wlan.conf
-%attr(600,root,root) %config %verify(not size mtime md5) %{_sysconfdir}/pcmcia/wlan.opts
-%attr(600,root,root) %config %verify(not size mtime md5) %{_sysconfdir}/pcmcia/wlan.network.opts
+%attr(600,root,root) %config %verify(not md5 mtime size) %{_sysconfdir}/pcmcia/wlan.opts
+%attr(600,root,root) %config %verify(not md5 mtime size) %{_sysconfdir}/pcmcia/wlan.network.opts
 %{_mandir}/man8/*
