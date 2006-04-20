@@ -9,6 +9,7 @@ Source0:	http://www.linux-wlan.com/linux-wlan/%{name}-%{version}.tar.gz
 # Source0-md5:	47fb22cb5ca497eaa6bc51eed2056929
 Patch0:		%{name}.pld.patch
 URL:		http://www.linux-wlan.com/
+BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	pcmcia-cs
 ExcludeArch:	sparc sparc64
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -45,17 +46,11 @@ mv -f $RPM_BUILD_ROOT%{_sysconfdir}/pcmcia/wlan.config /$RPM_BUILD_ROOT%{_syscon
 rm -rf $RPM_BUILD_ROOT
 
 %post
-if [ -f /var/lock/subsys/pcmcia ]; then
-	/etc/rc.d/init.d/pcmcia restart 2> /dev/null
-else
-	echo "Run \"/rc.d/init.d/pcmcia start\" to start pcmcia cardbus daemon."
-fi
+%service pcmcia restart "pcmcia cardbus daemon"
 
 %postun
 if [ "$1" = "0" ]; then
-	if [ -f /var/state/run/pcmcia ]; then
-		/etc/rc.d/init.d/pcmcia restart 2> /dev/null
-	fi
+	%service pcmcia restart
 fi
 
 %files
