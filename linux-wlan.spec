@@ -59,7 +59,7 @@ fi
 %doc README.linuxppc README.wep TODO THANKS
 %attr(755,root,root) %{_sbindir}/*
 %attr(755,root,root) %{_sysconfdir}/pcmcia/wlan
-%attr(644,root,root) %{_sysconfdir}/pcmcia/wlan.conf
+%{_sysconfdir}/pcmcia/wlan.conf
 %attr(600,root,root) %config %verify(not md5 mtime size) %{_sysconfdir}/pcmcia/wlan.opts
 %attr(600,root,root) %config %verify(not md5 mtime size) %{_sysconfdir}/pcmcia/wlan.network.opts
 %{_mandir}/man8/*
