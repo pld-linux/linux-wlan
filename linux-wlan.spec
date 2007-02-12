@@ -1,5 +1,5 @@
 Summary:	PCMCIA wireless microwave network card services
-Summary(pl):	Obs³uga mikrofalowych kart sieciowych PCMCIA
+Summary(pl.UTF-8):   ObsÅ‚uga mikrofalowych kart sieciowych PCMCIA
 Name:		linux-wlan
 Version:	0.3.4
 Release:	5
@@ -20,8 +20,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 The pcmcia-cs package adds microwave wirelless PCMCIA networks cards
 handling support for your PLD-Linux system.
 
-%description -l pl
-Pakiet pcmcia-cs zawiera programy wspieraj±ce obs³ugê mikrofalowych
+%description -l pl.UTF-8
+Pakiet pcmcia-cs zawiera programy wspierajÄ…ce obsÅ‚ugÄ™ mikrofalowych
 kart sieciowych PCMCIA w Twoim PLD-Linuksie.
 
 %prep
