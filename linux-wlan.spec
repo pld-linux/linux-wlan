@@ -1,5 +1,5 @@
 Summary:	PCMCIA wireless microwave network card services
-Summary(pl.UTF-8):   Obsługa mikrofalowych kart sieciowych PCMCIA
+Summary(pl.UTF-8):	Obsługa mikrofalowych kart sieciowych PCMCIA
 Name:		linux-wlan
 Version:	0.3.4
 Release:	5
